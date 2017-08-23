@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import AddTodo from './AddTodo';
 import TodoList from './TodoList';
+import Filter from '../containers/Filter';
 
 class TodoApp extends Component {
     constructor(props) {
@@ -10,11 +11,12 @@ class TodoApp extends Component {
 
     render() {
         console.log(this.props);
-        const { todo, todoActions : { addNewTodo, toggleTodo } } = this.props;
+        const { todo, todoActions : { actionAddTodo, actionToggleTodo } } = this.props;
         return (
             <div>
-                <AddTodo addNewTodo = {addNewTodo} />
-                <TodoList tasks={todo} toggleTodo={toggleTodo} /*visibilityFilter={visibilityFilter}*/ />
+                <AddTodo addNewTodo = {actionAddTodo} />
+                <TodoList tasks={todo} toggleTodo={actionToggleTodo} /*visibilityFilter={visibilityFilter}*/ />
+                <Filter />
             </div>
         );
     }

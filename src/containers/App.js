@@ -5,19 +5,19 @@ import { bindActionCreators } from 'redux';
 import * as todoActions from '../actions/TodoActions';
 import TodoApp from '../components/App';
 
-/*
-class App extends Component {
-    render() {
-        return (
-            <div>
-                <p>Hello from App Container</p>
-            </div>
-        );
+const getVisibleTodos = (todos, filter) => {
+    switch (filter) {
+        case 'SHOW_ALL':
+            return todos;
+        case 'SHOW_COMPLETED':
+            return todos.filter(t => t.isCompleted);
+        case 'SHOW_ACTIVE':
+            return todos.filter(t => !t.isCompleted);
     }
-};*/
+}
 
 const mapStateToProps = (state) => ({
-    todo : state.todo
+    todo  : getVisibleTodos(state.todo, state.filter)
 });
 
 const mapDispatchToAction = (dispatch) => ({
