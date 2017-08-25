@@ -8,8 +8,7 @@ class Filter extends Component {
    }
 
    render() {
-       console.log(this.props);
-       const { filter, filterActions : { showAll, showCompleted, showProgress} } = this.props;
+       const { filterActions : { showAll, showCompleted, showProgress} } = this.props;
 
        return (
            <div>

@@ -8,11 +8,14 @@ class TodoList extends Component {
     }
 
     render() {
-        const { tasks, toggleTodo, visibilityFilter } = this.props;
-        console.log(tasks, visibilityFilter);
+        const { tasks, toggleTodo, deleteTodo } = this.props;
         const list = tasks.map((item, index) => {
-            console.log(index);
-            return (<Todo key={index} id={index} name={item.text} isCompleted={item.isCompleted} toggleTodo={toggleTodo} />);
+            return (<Todo key={index}
+                          id={index}
+                          item={item}
+                          toggleTodo={toggleTodo}
+                          deleteTodo={deleteTodo}
+            />);
         });
         return (
             <div>

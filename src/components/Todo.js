@@ -5,20 +5,27 @@ class Todo extends Component {
     constructor(props) {
         super(props);
         this.toggleTodo = this.toggleTodo.bind(this);
+        this.deleteTodo = this.deleteTodo.bind(this);
     }
 
     toggleTodo() {
-        const { id, toggleTodo } = this.props;
-        console.log("ID", id);
-        toggleTodo(id);
+        const { item, toggleTodo } = this.props;
+        toggleTodo(item);
+    }
+
+    deleteTodo(e) {
+        const { item, deleteTodo } = this.props;
+        deleteTodo(item);
+        e.stopPropagation();
     }
 
     render() {
-        const { name, isCompleted } = this.props;
-       // console.log("ID", id, this.props);
+        const { item : { text, isCompleted } } = this.props;
+
         return (
             <li onClick={ this.toggleTodo } style={{ textDecoration: isCompleted ? 'line-through' : 'none' }}>
-                {name}
+                {text}
+                <button onClick={this.deleteTodo}>Delete Task</button>
             </li>
         );
     }

@@ -1,15 +1,23 @@
 'use strict';
+import * as type from '../constants/Todo';
 
 export function actionAddTodo(text) {
     return {
-        type : "ADD_TODO",
+        type : type.ADD_TODO,
         payload : text
     }
 }
 
-export function actionToggleTodo(id) {
+export function actionToggleTodo(item) {
     return {
-        type : "TOGGLE_TODO",
-        payload : id
+        type : type.TOGGLE_TODO,
+        payload : item
+    }
+}
+
+export function actionDeleteTodo(item) {
+    return {
+        type : type.DELETE_TODO,
+        payload : item
     }
 }

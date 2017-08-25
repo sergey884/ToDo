@@ -12,10 +12,10 @@ class AddTodo extends Component {
         const value = this.textInput.value;
         const { addNewTodo } = this.props;
         addNewTodo(value);
+        this.textInput.value = '';
     }
 
     render() {
-        console.log(this.props);
         return(
             <div>
                 <form onSubmit={this.handleSubmit}>

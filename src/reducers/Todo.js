@@ -1,4 +1,6 @@
 'use strict';
+import * as type from '../constants/Todo';
+
 const initialState = [
         {
             text : "First task",
@@ -8,15 +10,19 @@ const initialState = [
 
 const todo = (state = initialState, action) => {
     switch(action.type) {
-        case "ADD_TODO" :
+        case type.ADD_TODO :
             let newTodo = {
                 text : action.payload,
                 isCompleted : false
             };
             return [...state, newTodo ];
-        case "TOGGLE_TODO" :
-            return state.map((item, index) => {
-                return index === action.payload ? {...item, isCompleted : !item.isCompleted} : item;
+        case type.TOGGLE_TODO :
+            return state.map(item => {
+                return item === action.payload ? {...item, isCompleted : !item.isCompleted} : item;
+            });
+        case type.DELETE_TODO :
+            return state.filter(item => {
+                return item !== action.payload;
             });
         default :
             return state;
