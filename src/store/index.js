@@ -6,15 +6,16 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import rootReducer from '../reducers';
 
 const logger = createLogger();
-const middleware = [ thunk, logger ];
+const middleware = [thunk, logger];
+
 const createAppStore = () => {
-    const store = createStore(
-        rootReducer,
-        composeWithDevTools(
-            applyMiddleware(...middleware)
-        )
-    );
-    return store;
-}
+  const store = createStore(
+    rootReducer,
+    composeWithDevTools(
+      applyMiddleware(...middleware)
+    )
+  );
+  return store;
+};
 
 export default createAppStore;

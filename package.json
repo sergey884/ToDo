@@ -5,35 +5,65 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",
-    "test": "jest"
+    "test": "jest",
+    "test:coverage": "jest --coverage"
   },
   "author": "Sergey Avanesyan",
   "license": "MIT",
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-jest": "^20.0.3",
-    "babel-loader": "^7.1.2",
+    "@babel/plugin-transform-runtime": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^10.0.3",
+    "babel-jest": "^24.9.0",
+    "babel-loader": "^8.0.6",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-polyfill": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
-    "jest": "^20.0.4",
-    "react-addons-test-utils": "^15.6.0",
-    "react-test-renderer": "^15.6.1",
-    "redux-devtools-extension": "^2.13.2",
-    "regenerator-runtime": "^0.11.0",
-    "webpack": "^3.5.5"
+    "css-loader": "^3.2.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "eslint": "^6.4.0",
+    "eslint-plugin-react": "^7.14.3",
+    "jest": "^24.9.0",
+    "react-addons-test-utils": "^15.6.2",
+    "react-test-renderer": "^16.9.0",
+    "redux-devtools-extension": "^2.13.8",
+    "regenerator-runtime": "^0.13.3",
+    "style-loader": "^1.0.0",
+    "webpack": "^4.40.2",
+    "webpack-cli": "^3.3.8",
+    "webpack-dev-server": "^3.8.0"
   },
   "dependencies": {
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
-    "react-redux": "^5.0.6",
-    "redux": "^3.7.2",
+    "bootstrap": "^4.3.1",
+    "react": "^16.9.0",
+    "react-bootstrap": "^1.0.0-beta.12",
+    "react-dom": "^16.9.0",
+    "react-redux": "^7.1.1",
+    "react-transition-group": "^4.3.0",
+    "redux": "^4.0.4",
     "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.3.0"
   },
   "jest": {
-    "verbose": true
+    "verbose": true,
+    "globals": {
+      "__DEV__": true
+    },
+    "collectCoverageFrom": [
+      "**/*.{js,jsx}",
+      "!**/node_modules/**",
+      "!**/vendor/**"
+    ],
+    "moduleNameMapper": {
+      "^.+\\.(css|sass)$": "<rootDir>/__mocks__/CSSStub.js"
+    },
+    "setupFiles": [
+      "<rootDir>/__mocks__/enzymeConfig.js"
+    ]
   }
 }

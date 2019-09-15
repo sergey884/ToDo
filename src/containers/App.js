@@ -6,22 +6,22 @@ import * as todoActions from '../actions/TodoActions';
 import TodoApp from '../components/App';
 
 const getVisibleTodos = (todos, filter) => {
-    switch (filter) {
-        case 'SHOW_ALL':
-            return todos;
-        case 'SHOW_COMPLETED':
-            return todos.filter(t => t.isCompleted);
-        case 'SHOW_ACTIVE':
-            return todos.filter(t => !t.isCompleted);
-    }
+  switch (filter) {
+    case 'SHOW_ALL':
+      return todos;
+    case 'SHOW_COMPLETED':
+      return todos.filter(t => t.isCompleted);
+    case 'SHOW_ACTIVE':
+      return todos.filter(t => !t.isCompleted);
+  }
 }
 
 const mapStateToProps = (state) => ({
-    todo  : getVisibleTodos(state.todo, state.filter)
+  todo: getVisibleTodos(state.todo, state.filter)
 });
 
 const mapDispatchToAction = (dispatch) => ({
-    todoActions : bindActionCreators(todoActions, dispatch)
+  todoActions: bindActionCreators(todoActions, dispatch)
 });
 
 export default connect(mapStateToProps, mapDispatchToAction)(TodoApp);

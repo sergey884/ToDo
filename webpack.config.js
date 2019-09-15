@@ -25,10 +25,14 @@ module.exports = {
                 use : {
                     loader : 'babel-loader',
                     options : {
-                        presets : ['es2015', 'stage-0', 'react'],
-                        plugins : ['transform-runtime']
+                        presets : ['@babel/preset-react'],
+                        plugins : ['@babel/plugin-transform-runtime']
                     }
                 }
+            },
+            {
+                test: /\.css$/i,
+                use: ['style-loader', 'css-loader'],
             }
         ]
     },
