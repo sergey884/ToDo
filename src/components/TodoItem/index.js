@@ -25,7 +25,10 @@ class TodoItem extends Component {
     const { item: { text, isCompleted } } = this.props;
 
     return (
-      <ListGroup.Item className="d-flex flex-row justify-content-between" style={{ marginTop: '0.5rem' }}>
+      <ListGroup.Item 
+        className="d-flex flex-row justify-content-between" 
+        style={{ marginTop: '0.5rem' }}
+      >
         <div
           onClick={this.toggleTodo}
           style={{ textDecoration: isCompleted ? 'line-through' : 'none' }}
@@ -40,5 +43,18 @@ class TodoItem extends Component {
     );
   }
 }
+
+TodoItem.PropTypes = {
+  item: PropTypes.shape({
+    text: PropTypes.string.isRequired,
+    isCompleted: PropTypes.bool.isRequired
+  }),
+  deleteTodo: PropTypes.func,
+  toggleTodo: PropTypes.func
+};
+
+TodoItem.defaultProps = {
+  item: {},
+};
 
 export default TodoItem;

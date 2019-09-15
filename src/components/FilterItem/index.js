@@ -1,5 +1,6 @@
 'use strict';
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Button } from 'react-bootstrap';
 
 class FilterItem extends Component {
@@ -22,5 +23,15 @@ class FilterItem extends Component {
     );
   }
 }
+
+FilterItem.PropTypes = {
+  action: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired,
+  className: PropTypes.string
+};
+
+FilterItem.defaultProps = {
+  className: null,
+};
 
 export default FilterItem;

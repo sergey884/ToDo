@@ -1,9 +1,11 @@
 'use strict';
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { Form, Button, Col } from 'react-bootstrap';
 
 function AddTodo(props) {
   const [inputValue, setInputValue] = useState('');
+  
   const handleSubmit = event => {
     event.preventDefault();
     const { addNewTodo } = props;
@@ -22,6 +24,7 @@ function AddTodo(props) {
         <Col>
           <Form.Control
             type="text"
+            className="t__AddTodo-input"
             placeholder="Type todo name..."
             value={inputValue}
             onChange={handleChange}
@@ -34,5 +37,9 @@ function AddTodo(props) {
     </Form>
   );
 }
+
+AddTodo.PropTypes = {
+  addNewTodo: PropTypes.func.isRequired
+};
 
 export default AddTodo;

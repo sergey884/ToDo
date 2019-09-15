@@ -1,0 +1,1 @@
+## Simple ToDo recat/redux application with animation.
